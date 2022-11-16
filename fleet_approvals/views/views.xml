@@ -32,6 +32,8 @@
             <field name="arch" type="xml">
                 <field name="has_location" position="after">
                     <field name="has_fleet" widget="radio" options="{'horizontal': true}"/>
+                    <field name="has_department_from" widget="radio" options="{'horizontal': true}"/>
+                    <field name="has_department_to" widget="radio" options="{'horizontal': true}"/>
 
                 </field>
             </field>
@@ -46,6 +48,18 @@
                      <field name="has_fleet" invisible="1"/>
                     <field name="fleet"
                     attrs="{'invisible':[('has_fleet','==','no')], 'required': [('has_fleet','==','required')]}"/>
+                    <field name="has_department_from" invisible="1"/>
+                    <field name="has_department_to" invisible="1"/>
+
+                    <label for="from_department" string="Department" attrs="{'invisible':[('has_department_from','==','no')]}"/>
+                            <div attrs="{'invisible':[('has_department_from','==','no')]}">
+                                <div>
+                                  <span>From: </span><field name="from_department" class="oe_inline" attrs="{'required': [('has_department_from','==','required')], 'readonly': [('request_status','not in',('new', 'pending'))]}"/>
+                                </div>
+                                <div>
+                                  <span>to: </span><field name="to_department" class="oe_inline ms-4" attrs="{'required': [('has_department_to','==','required')], 'readonly': [('request_status','not in',('new', 'pending'))]}"/>
+                                </div>
+                            </div>
                 </xpath>
             </field>
         </record>

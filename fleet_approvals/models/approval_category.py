@@ -13,3 +13,5 @@ class ApprovalCategory(models.Model):
     _inherit = 'approval.category'
 
     has_fleet = fields.Selection(CATEGORY_SELECTION, string="Fleet", default="no", required=True)
+    has_department_from = fields.Selection(CATEGORY_SELECTION, string="Department From", default="no", required=True)
+    has_department_to = fields.Selection(CATEGORY_SELECTION, string="Department To", default="no", required=True)
