@@ -46,6 +46,8 @@
                      <field name="has_fleet" invisible="1"/>
                     <field name="fleet"
                     attrs="{'invisible':[('has_fleet','==','no')], 'required': [('has_fleet','==','required')]}"/>
+                    <field name="has_department_from" invisible="1"/>
+                    <field name="has_department_to" invisible="1"/>
 
                     <label for="from_department" string="Department" attrs="{'invisible':[('has_department_from','==','no')]}"/>
                             <div attrs="{'invisible':[('has_department_from','==','no')]}">
