@@ -1,0 +1,59 @@
+<odoo>
+    <data>
+<!--        <record id="approval_category_view_kanban_inherit" model="ir.ui.view">-->
+<!--            <field name="name">approval.category.view.kanban</field>-->
+<!--            <field name="model">approval.category</field>-->
+<!--            <field name="inherit_id" ref="approvals.approval_category_view_kanban"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <xpath expr="//kanban" position="inside">-->
+<!--                    <field name="can_see" invisible="1"/>-->
+<!--                    <field name="can_see_false" invisible="1"/>-->
+<!--                </xpath>-->
+<!--                <xpath expr="//kanban[1]/templates[1]//field[@name='name']" position="after">-->
+<!--                    <field name="can_see" invisible="1"/>-->
+<!--                    <field name="can_see_false" invisible="1"/>-->
+<!--                </xpath>-->
+<!--                &lt;!&ndash; add by Bhavesh Jadav 14/10/2020&ndash;&gt;-->
+<!--                <xpath expr="//button[2]" position="replace">-->
+<!--                    <button type="object" class="btn btn-sm btn-secondary float-right"-->
+<!--                            name="call_to_review_action"-->
+<!--                            groups="approvals.group_approval_user">To Review:-->
+<!--                        <field name="request_to_validate_count"/>-->
+<!--                    </button>-->
+<!--                </xpath>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <!-- explicit list view definition -->
+        <record id="approval_category_view_form_inherit" model="ir.ui.view">
+            <field name="name">approval.category.view.form</field>
+            <field name="model">approval.category</field>
+            <field name="inherit_id" ref="approvals.approval_category_view_form"/>
+            <field name="arch" type="xml">
+                <field name="has_location" position="after">
+                    <field name="has_fleet" widget="radio" options="{'horizontal': true}"/>
+
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="approval_request_view_form_inhirit">
+            <field name="name">approval_request_tree</field>
+            <field name="model">approval.request</field>
+            <field name="inherit_id" ref="approvals.approval_request_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='reference']" position="after">
+                    <field name="fleet"/>
+                </xpath>
+            </field>
+        </record>
+
+         <record model="ir.actions.act_window" id="approval_request_extended_action">
+            <field name="name">Approval Request</field>
+             <field name="type">ir.actions.act_window</field>
+            <field name="res_model">approval.request</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

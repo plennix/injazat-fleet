@@ -1,0 +1,20 @@
+<odoo>
+
+    <record model="ir.ui.view" id="fleet_vehicle_form_inherit">
+        <field name="name">fleet.vehicle.form.inherit</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='open_assignation_logs']" position="after">
+                 <button name="action_view_transfer_history"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-history"
+                    >
+                    <field name="done_approval_request_count" widget="statinfo" string="Transfer History"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
