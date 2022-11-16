@@ -43,8 +43,20 @@
             <field name="inherit_id" ref="approvals.approval_request_view_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='reference']" position="after">
-                    <field name="fleet"/>
+                     <field name="has_fleet" invisible="1"/>
+                    <field name="fleet"
+                    attrs="{'invisible':[('has_fleet','==','no')], 'required': [('has_fleet','==','required')]}"/>
                 </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="approval_request_view_tree_inhirit">
+            <field name="name">approval_request_inherit_tree</field>
+            <field name="model">approval.request</field>
+            <field name="inherit_id" ref="approvals.approval_request_view_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='category_id']" position="replace"></xpath>
+                <xpath expr="//field[@name='activity_ids']" position="replace"></xpath>
             </field>
         </record>
 

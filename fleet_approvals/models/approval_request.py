@@ -10,3 +10,4 @@ class ApprovalRequest(models.Model):
     _inherit = 'approval.request'
 
     fleet= fields.Many2one('fleet.vehicle', string='Fleet')
+    has_fleet = fields.Selection(related="category_id.has_fleet")
