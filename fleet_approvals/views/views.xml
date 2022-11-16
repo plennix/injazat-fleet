@@ -32,6 +32,8 @@
             <field name="arch" type="xml">
                 <field name="has_location" position="after">
                     <field name="has_fleet" widget="radio" options="{'horizontal': true}"/>
+                    <field name="has_department_from" widget="radio" options="{'horizontal': true}"/>
+                    <field name="has_department_to" widget="radio" options="{'horizontal': true}"/>
 
                 </field>
             </field>
