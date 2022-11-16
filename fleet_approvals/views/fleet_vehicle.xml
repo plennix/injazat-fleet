@@ -11,7 +11,7 @@
                     class="oe_stat_button"
                     icon="fa-history"
                     >
-                    <field name="done_approval_request_count" widget="statinfo" string="Transfer History"/>
+                    <field name="done_approval_request_count" widget="statinfo" string="Transaction History"/>
                 </button>
             </xpath>
         </field>
